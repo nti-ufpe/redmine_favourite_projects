@@ -6,6 +6,7 @@ module FavouriteProjectsApplicationHelperPatch
 
     base.class_eval do
       alias_method_chain :render_project_jump_box, :favourite_projects
+      alias_method_chain :project_tree_options_for_select, :favourite_projects
     end
   end
   
@@ -37,5 +38,23 @@ module FavouriteProjectsApplicationHelperPatch
         render_project_jump_box_without_favourite_projects
       end
     end
+    
+    # this is a hack to prevent jQuery chosen from including nbsp's in search results
+  def project_tree_options_for_select_with_favourite_projects(projects, options = {})
+    s = ''
+    project_tree(projects) do |project, level|
+      name_prefix = (level > 0 ? '&#173;' * 2 * level + '&#187; ' : '').html_safe
+      tag_options = {:value => project.id}
+      if project == options[:selected] || (options[:selected].respond_to?(:include?) && options[:selected].include?(project))
+        tag_options[:selected] = 'selected'
+      else
+        tag_options[:selected] = nil
+      end
+      tag_options.merge!(yield(project)) if block_given?
+      s << content_tag('option', name_prefix + h(project), tag_options)
+    end
+    s.html_safe
+  end 
+    
   end
 end
