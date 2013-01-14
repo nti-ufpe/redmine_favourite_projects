@@ -1,1 +1,5 @@
 #header a.chzn-single, #project_quick_jump_box_chzn { color:black; vertical-align:bottom; }
+
+.modal .chzn-container .chzn-drop {
+  position:fixed;
+}

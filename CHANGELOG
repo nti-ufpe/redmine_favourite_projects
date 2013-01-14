@@ -2,7 +2,9 @@
     * Fixed project jumpbox alignment wrt search field
     * Created hack to replace nbsp's with soft hyphens to prevent 
       jQuery chosen plugin enabled project jumpbox putting nbsp's in results
-
+    * Added fix from here:https://github.com/harvesthq/chosen/issues/86#issuecomment-11632999
+      to redress "cut" issue
+    * Updated German translation (with thanks to cforce)
 0.6.2
     * Added Russian translation (with thanks to AlexStein)
 0.6.1
