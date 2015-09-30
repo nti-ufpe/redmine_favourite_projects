@@ -17,3 +17,6 @@ Additionally favourite projects can be added to the <b>Jump to a Project</b> dro
 == Special Thanks
 
 A special thanks to all the project's contributors[https://github.com/syntacticvexation/redmine_favourite_projects/network/members] and especially, johnroyer[https://github.com/johnroyer] for many hours of assistance with plugin appearance and testing.
+
+== Additional comments
+Forked for https://github.com/syntacticvexation/redmine_favourite_projects.git
